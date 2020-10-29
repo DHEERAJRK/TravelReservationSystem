@@ -1,0 +1,4 @@
+
+PNR: DB201188
+Itinerary :del-blr : 1 day flight, rest $ 240
+Number of Passengers: 2
