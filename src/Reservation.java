@@ -9,7 +9,7 @@ public class Reservation {
     {
         try
         {
-            File myObj = new File("C:\\Users\\dheer\\IdeaProjects\\TORS\\newTrips.txt");
+            File myObj = new File("newTrips.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine())
             {

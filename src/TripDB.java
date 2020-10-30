@@ -14,7 +14,7 @@ public class TripDB
         try
         {
             newTrips = new ArrayList<>();
-            File myObj = new File("C:\\Users\\dheer\\IdeaProjects\\TORS\\newTrips.txt");
+            File myObj = new File("newTrips.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine())
             {
@@ -35,7 +35,7 @@ public class TripDB
     {
         try
         {
-            File myObj = new File("C:\\Users\\dheer\\IdeaProjects\\TORS\\newTrips.txt");
+            File myObj = new File("newTrips.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine())
             {
@@ -62,7 +62,7 @@ public class TripDB
         try
         {
             myTrips = new ArrayList<>();
-            File myObj = new File("C:\\Users\\dheer\\IdeaProjects\\TORS\\myTrips.txt");
+            File myObj = new File("myTrips.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine())
             {
@@ -82,7 +82,7 @@ public class TripDB
     public static void updateMyTrips(String PNR, String tripDetails, int passengers)
     {
         try {
-            File file = new File("C:\\Users\\dheer\\IdeaProjects\\TORS\\myTrips.txt");
+            File file = new File("myTrips.txt");
             FileWriter fr = new FileWriter(file, true);
             fr.write("\n \n");
             fr.write("PNR: "+ PNR+ "\n" +"Itinerary :"+ tripDetails + "\n" + "Number of Passengers: "+passengers);

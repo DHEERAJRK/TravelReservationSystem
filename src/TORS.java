@@ -40,7 +40,8 @@ public class TORS {
         }
         String tripDetails = getTripDetails(sn);
         if(tripDetails.isEmpty()) {
-            System.out.println("Sorry no such trip found");
+            System.out.println("Sorry no such trip found, Please select a valid Trip");
+            getTrips();
         }
         else {
             System.out.println(tripDetails);
@@ -70,6 +71,8 @@ public class TORS {
         String PNR = Reservation.reserveTrip(tripDetails, passengers,cardNumber);
         System.out.println("Congratulations your reservation is completed, Below are the trip details");
         System.out.println("PNR: "+ PNR+ "\n" +"Itinerary :"+ tripDetails + "\n" + "Number of Passengers: "+passengers);
+        FeedBack fb = new FeedBack();
+        fb.getFeedBack();
         System.exit(0);
     }
 
