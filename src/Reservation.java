@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -31,7 +29,7 @@ public class Reservation {
         }
         return 0;
     }
-    public static String reserveTrip(String tripDetails, int passengers, Long cardNumber)
+    public static String reserveTrip(String tripDetails, int passengers, Long cardNumber, String email)
     {
         Boolean validate = Payment.validate(cardNumber);
         if(validate)
@@ -41,7 +39,7 @@ public class Reservation {
         else
         {
             System.out.println("Sorry Invalid card Number, Enter a valid CreditCard number");
-            TORS.PayAndReserve(tripDetails,passengers);
+            TORS.PayAndReserve(tripDetails,passengers, email);
         }
         return "";
     }

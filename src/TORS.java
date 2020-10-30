@@ -49,30 +49,40 @@ public class TORS {
             System.out.println("Enter 2 to get all the trips");
             int proceedOrNot = sn.nextInt();
             if (proceedOrNot == 1) {
-                System.out.println("Enter number of passengers");
-                int passengers = sn.nextInt();
-                if(passengers > 0) {
-                    int totalFare = Reservation.getTotalFare(tripDetails, passengers);
-                    System.out.println("Total Fare for selected trip is " + totalFare);
-                    PayAndReserve(tripDetails, passengers);
-                }
-                else{
-                    System.out.println("Not a valid input - Passengers should be more than 0");
-                }
+                getPassengerDetails(tripDetails);
             } else {
                 getTrips();
             }
         }
     }
 
-    public static void PayAndReserve(String tripDetails, int passengers) {
+    private static void getPassengerDetails(String tripDetails) {
+        System.out.println("Enter number of passengers and EmailAddress");
+        int passengers = sn.nextInt();
+        String userEmail = sn.next();
+        if(!(userEmail.contains("@") && userEmail.contains(".")))
+        {
+            System.out.println("Please enter a valid Email address");
+            getPassengerDetails(tripDetails);
+        }
+        if(passengers > 0) {
+            int totalFare = Reservation.getTotalFare(tripDetails, passengers);
+            System.out.println("Total Fare for selected trip is " + totalFare);
+            PayAndReserve(tripDetails, passengers, userEmail);
+        }
+        else{
+            System.out.println("Not a valid input - Passengers should be more than 0");
+        }
+    }
+
+    public static void PayAndReserve(String tripDetails, int passengers, String email) {
         System.out.println("Please enter your Credit card Number");
         Long cardNumber = sn.nextLong();
-        String PNR = Reservation.reserveTrip(tripDetails, passengers,cardNumber);
+        String PNR = Reservation.reserveTrip(tripDetails, passengers,cardNumber, email);
         System.out.println("Congratulations your reservation is completed, Below are the trip details");
         System.out.println("PNR: "+ PNR+ "\n" +"Itinerary :"+ tripDetails + "\n" + "Number of Passengers: "+passengers);
         FeedBack fb = new FeedBack();
-        fb.getFeedBack();
+        fb.getFeedBack(email);
         System.exit(0);
     }
 
